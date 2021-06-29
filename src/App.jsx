@@ -4,19 +4,36 @@ import CounterOne from './components/reducerHook/CounterOne';
 import CounterTwo from './components/reducerHook/CounterTwo';
 
 function reducer(state, action) {
-	if (action.type === 'increment') {
-		return {
-			counterOne: state.counterOne + 1,
-			counterTwo: state.counterTwo + 5,
-		};
+	switch (action.type) {
+		case 'increment':
+			return {
+				counterOne: state.counterOne + 1,
+				counterTwo: state.counterTwo + 5,
+			};
+		case 'decrement':
+			return {
+				counterOne: state.counterOne - 1,
+				counterTwo: state.counterTwo - 5,
+			};
+		default:
+			return state;
 	}
-	if (action.type === 'decrement') {
-		return {
-			counterOne: state.counterOne - 1,
-			counterTwo: state.counterTwo - 5,
-		};
-	}
-	return state;
+
+	// if (action.type === 'increment') {
+	// 	return {
+	// 		counterOne: state.counterOne + 1,
+	// 		counterTwo: state.counterTwo + 5,
+	// 	};
+	// }
+
+	// if (action.type === 'decrement') {
+	// 	return {
+	// 		counterOne: state.counterOne - 1,
+	// 		counterTwo: state.counterTwo - 5,
+	// 	};
+	// }
+
+	// return state;
 }
 
 const initialState = {
